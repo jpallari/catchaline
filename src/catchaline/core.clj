@@ -25,7 +25,7 @@
 
 (defn start-pipe-server [output opts]
   (tcp/start-server
-      (fn [client _] (s/connect client output))
+      (fn [client _] (s/connect client output {:downstream? false}))
       opts))
 
 (defn print-to-outputs [s outs]
